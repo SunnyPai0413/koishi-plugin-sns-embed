@@ -34,7 +34,6 @@
     "koishi": "^4.18.3"
   },
   "dependencies": {
-    "koishi-plugin-milvus": "^1.0.0",
     "@zilliz/milvus2-sdk-node": "^2.4.0"
   }
 }
