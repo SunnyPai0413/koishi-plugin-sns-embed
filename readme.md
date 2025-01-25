@@ -8,15 +8,15 @@ This is a plugin for Koishi that stroages SNS message records and create vectori
 
 ## Features | Todo List
 
-- [:white_check_mark:] Dump all SNS messages to database. SQLite as default, MySQL supported.
-- [:x:] Store more Metadata for SNS messages so that we can use them in complicated RAG callback rules.
-- [:white_check_mark:] Store MultiModal messages (Image, Video, Audio, etc.) to koishi assets. Local storage as default, S3 compatible or others not tested yet.
-- [:x:] More OSS provider support. Alibaba Cloud, Tencent Cloud, Cloudflare R2, etc.
-- [:x:] Use ASR model, VLM model, optical flow, etc. for MultiModal semantic understanding. Create vectorized embeddings for MultiModal messages. This is for further RAG callback.
-- [:white_check_mark:] Create vectorized embeddings with OpenAI compatible API for SNS messages. Only Zhipu API is tested now.
-- [:white_check_mark:] Store vectorized embeddings to vector database. Only Milvus is supported now.
-- [:x:] Create more RAG callback rules and NLP models workflow for message reply. Prompt engineering nessitates in this step.
-- [:x:] Cluster deployment parameters for Database, Vector Database, Object Storage, etc.
+- [✅] Dump all SNS messages to database. SQLite as default, MySQL supported.
+- [❌] Store more Metadata for SNS messages so that we can use them in complicated RAG callback rules.
+- [✅] Store MultiModal messages (Image, Video, Audio, etc.) to koishi assets. Local storage as default, S3 compatible or others not tested yet.
+- [❌] More OSS provider support. Alibaba Cloud, Tencent Cloud, Cloudflare R2, etc.
+- [❌] Use ASR model, VLM model, optical flow, etc. for MultiModal semantic understanding. Create vectorized embeddings for MultiModal messages. This is for further RAG callback.
+- [✅] Create vectorized embeddings with OpenAI compatible API for SNS messages. Only Zhipu API is tested now.
+- [✅] Store vectorized embeddings to vector database. Only Milvus is supported now.
+- [❌] Create more RAG callback rules and NLP models workflow for message reply. Prompt engineering nessitates in this step.
+- [❌] Cluster deployment parameters for Database, Vector Database, Object Storage, etc.
 
 ---
 
