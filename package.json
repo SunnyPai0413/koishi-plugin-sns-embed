@@ -1,0 +1,40 @@
+{
+  "name": "koishi-plugin-sns-embed",
+  "description": "Koishi plugin for SNS message dump and vectorized embedding",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "author": {
+    "name": "SunnyPai",
+    "email": "sunnypai@luckydog.moe",
+    "url": "https://github.com/SunnyPai0413"
+  },
+  "contributors": [
+    "SanLiy <https://github.com/adk23333>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SunnyPai0413/koishi-plugin-sns-embed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SunnyPai0413/koishi-plugin-sns-embed/issues"
+  },
+  "homepage": "https://github.com/SunnyPai0413/koishi-plugin-sns-embed/#readme",
+  "license": "MIT",
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin"
+  ],
+  "peerDependencies": {
+    "koishi": "^4.18.3"
+  },
+  "dependencies": {
+    "koishi-plugin-milvus": "^1.0.0",
+    "@zilliz/milvus2-sdk-node": "^2.4.0"
+  }
+}
