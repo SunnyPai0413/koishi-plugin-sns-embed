@@ -30,10 +30,14 @@
     "koishi",
     "plugin"
   ],
+  "service": {
+    "required": ["database", "assets", "milvus"]
+  },
   "peerDependencies": {
     "koishi": "^4.18.3"
   },
-  "dependencies": {
-    "@zilliz/milvus2-sdk-node": "^2.4.0"
+  "devDependencies": {
+    "@zilliz/milvus2-sdk-node": "^2.4.0",
+    "koishi-plugin-milvus": "^1.0.0"
   }
 }

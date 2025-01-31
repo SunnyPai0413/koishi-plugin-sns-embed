@@ -1,7 +1,7 @@
 import { Context, Keys, Schema, Tables } from 'koishi';
 import { init, init_collection } from './init';
 import { fetchEmbeddings } from './requests';
-//import { text } from 'stream/consumers';
+import {} from 'koishi-plugin-milvus';
 
 export const name = 'milvus-insert';
 export const inject = ['database', 'milvus', 'assets']
@@ -65,6 +65,7 @@ export const Config: Schema<Config> = Schema.object({
 
 export function apply(ctx: Context, config: Config) {
   ctx.on('message-created', async (session) => {
+    ctx.logger.warn(session);
     try {
       // 获取消息内容
       const platform = session.event.platform;
