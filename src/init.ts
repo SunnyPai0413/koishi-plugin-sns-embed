@@ -12,6 +12,7 @@ export interface SnsRecord {
   create_time: Date;
   platform: string;
   userId: string;
+  guildId: string;
   textContent: string[];
 }
 
@@ -21,6 +22,7 @@ export function init(sns_record, ctx: Context){
         create_time: 'timestamp',
         platform: 'char(32)',
         userId: 'char(64)',
+        guildId: 'char(64)',
         textContent: 'list',
     }, {
         primary: 'id',

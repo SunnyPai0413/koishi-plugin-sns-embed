@@ -27,33 +27,26 @@ export const Config: Schema<Config> = Schema.object({
   // database
   table_name: Schema.string()
     .default("sns_record")
-    .required()
     .description("SQL数据库表名"),
   // milvus
   db_name: Schema.string()
     .default("default")
-    .required()
     .description("Milvus 数据库的名称"),
   collection_name: Schema.string()
     .default("sns_record")
-    .required()
     .description("Milvus 中的 Collection 名称"),
   consistency_level: Schema.string()
     .default("Eventually")
-    .required()
     .description("Milvus 的一致性级别，请在 Strong,Bounded Staleness,Session,Eventually 中选择填写"),
   embeddingDimension: Schema.number()
     .default(1536)
     .min(1)
-    .required()
     .description("向量的维度"),
   // embedding
   model: Schema.string()
-    .required()
     .default('embedding-3')
     .description("Embedding 模型的名称"),
   apiUrl: Schema.string()
-    .required()
     .default("https://open.bigmodel.cn/api/paas/v4/embeddings")
     .description("Embedding 模型提供商的 URL Endpoint"),
   apiKey: Schema.string()
@@ -65,12 +58,12 @@ export const Config: Schema<Config> = Schema.object({
 
 export function apply(ctx: Context, config: Config) {
   ctx.on('message-created', async (session) => {
-    ctx.logger.warn(session);
     try {
       // 获取消息内容
       const platform = session.event.platform;
       const userId = session.event.user.id;
       const messageElements = session.event.message.elements;
+      const guildId = session.event.guild;
 
       const textContents: string[] = [];
       for (const element of messageElements) {
@@ -118,6 +111,7 @@ export function apply(ctx: Context, config: Config) {
         create_time: Date.now(),
         platform: platform,
         userId: userId,
+        guildId: guildId,
         textContent: textContents,
       }
       try {
@@ -134,11 +128,11 @@ export function apply(ctx: Context, config: Config) {
 
 
       // 初始化 collection
-      let result = await ctx.milvus.client.hasCollection({
+      let colresult = await ctx.milvus.client.hasCollection({
         db_name: config.db_name,//'koishi',
         collection_name: config.collection_name,//'sns_record',
       })
-      if (!result.value) {
+      if (!colresult.value) {
         await init_collection(ctx, config);
       }
       
@@ -157,15 +151,16 @@ export function apply(ctx: Context, config: Config) {
         timestamp: Date.now(),
         content: textContents,
       }
-      result = await ctx.milvus.client.insert({
+
+      let embedresult = await ctx.milvus.client.insert({
         db_name: config.db_name,
         collection_name: config.collection_name,
         data: [RowData,],
       })
-      if (result.status.code!=0){
-        ctx.logger.error("insert error:", result.status);
+      if (embedresult.status.code!=0){
+        ctx.logger.error("insert error:", embedresult.status);
       }else{
-        ctx.logger.info("insert success:", result);
+        ctx.logger.info("insert success:", embedresult);
       }
 
     } catch (error) {

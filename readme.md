@@ -4,12 +4,15 @@
 
 This is a plugin for Koishi that stroages SNS message records and create vectorized embeddings.
 
+## ⚠️***WARNING!** This plugin will **automatically embed** SNS messages to vector database! **Please make sure you have enough money in your account!***
+
 ---
 
 ## Features | Todo List
 
 - [✅] Dump all SNS messages to database. SQLite as default, MySQL supported.
-- [❌] Store more Metadata for SNS messages so that we can use them in complicated RAG callback rules.
+- [❌] More platform adapter support. Only Onebot is tested now.
+- [✅] Store more Metadata for SNS messages so that we can use them in complicated RAG callback rules.
 - [✅] Store MultiModal messages (Image, Video, Audio, etc.) to koishi assets. Local storage as default, S3 compatible or others not tested yet.
 - [❌] More OSS provider support. Alibaba Cloud, Tencent Cloud, Cloudflare R2, etc.
 - [❌] Use ASR model, VLM model, optical flow, etc. for MultiModal semantic understanding. Create vectorized embeddings for MultiModal messages. This is for further RAG callback.

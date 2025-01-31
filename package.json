@@ -31,7 +31,11 @@
     "plugin"
   ],
   "service": {
-    "required": ["database", "assets", "milvus"]
+    "required": [
+      "database",
+      "assets",
+      "milvus"
+    ]
   },
   "peerDependencies": {
     "koishi": "^4.18.3"
