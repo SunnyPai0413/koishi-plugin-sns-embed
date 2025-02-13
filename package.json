@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-sns-embed",
   "description": "Koishi plugin for SNS message dump and vectorized embedding",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -41,7 +41,7 @@
     "@zilliz/milvus2-sdk-node": "^2.4.0",
     "koishi": "^4.18.3"
   },
-  "devDependencies": { 
+  "devDependencies": {
     "@zilliz/milvus2-sdk-node": "^2.4.0",
     "koishi-plugin-milvus": "^1.0.0"
   }
