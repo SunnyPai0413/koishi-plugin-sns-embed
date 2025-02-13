@@ -38,9 +38,10 @@
     ]
   },
   "peerDependencies": {
+    "@zilliz/milvus2-sdk-node": "^2.4.0",
     "koishi": "^4.18.3"
   },
-  "devDependencies": {
+  "devDependencies": { 
     "@zilliz/milvus2-sdk-node": "^2.4.0",
     "koishi-plugin-milvus": "^1.0.0"
   }

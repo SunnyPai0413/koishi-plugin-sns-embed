@@ -2,6 +2,7 @@ import { Context, Keys, Schema, Tables } from 'koishi';
 import { init, init_collection } from './init';
 import { fetchEmbeddings } from './requests';
 import {} from 'koishi-plugin-milvus';
+import {} from '@koishijs/assets'
 
 export const name = 'milvus-insert';
 export const inject = ['database', 'milvus', 'assets']
